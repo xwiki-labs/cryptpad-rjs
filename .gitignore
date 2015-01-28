@@ -1,0 +1,11 @@
+# IDEA
+*.iml
+*.ipr
+*.iws
+.idea
+atlassian-ide-plugin.xml
+
+# Other
+*.log.*
+*.log
+*~
