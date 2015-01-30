@@ -18,12 +18,22 @@
 <div data-role="page" class="ui-page">
   <div class="nav" data-role="header">
     <h1 class="title">CryptPAD</h1>
-    <a data-icon="grid" href="#page=cryptpad">New</a>
+    <a data-icon="plus" class="ui-btn-right ui-btn-icon-left" href="#page=cryptpad">New</a>
   </div>
 
   <div class="page">
   </div>
+
+  <div data-role="footer" data-position="fixed" data-theme="a">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#page=sessions" data-icon="bars">Sessions</a></li>
+        <li><a href="#page=settings" data-icon="gear">Settings</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
+<div class="session-storage" data-gadget-url="../session-storage/index.html" data-gadget-scope="session-storage"/>
 </body>
 </html>

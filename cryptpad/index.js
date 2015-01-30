@@ -14,11 +14,20 @@
 
         switch (options.page) {
             case 'cryptpad':
-                return thisGadget.declareGadget('../cryptpad-gadget/index.html', {element: pageElement}).then(function (cryptPadGadget) {
+                return thisGadget.declareGadget('../cryptpad-gadget/index.html', {
+                    element: pageElement
+                }).then(function (cryptPadGadget) {
                     return cryptPadGadget.setCryptPadLoadedCallback(function (cryptPad) {
                         thisGadget.__element.getElementsByClassName('title')[0].innerHTML = 'CryptPAD: ' + cryptPad.getKey();
+
+                        thisGadget.getDeclaredGadget('session-storage').then(function (sessionStorage) {
+                            return sessionStorage.storeSession(cryptPad.getKey(), 'preview');
+                        });
                     });
                 });
+            case 'sessions':
+                return thisGadget.declareGadget('../sessions/index.html', {element: pageElement});
         }
     });
-})(window, rJS);
+})
+(window, rJS);
