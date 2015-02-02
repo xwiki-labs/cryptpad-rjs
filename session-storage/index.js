@@ -2,8 +2,13 @@
     rJS(window).ready(function (gadget) {
         gadget.jIO = jIO.createJIO({
             type: 'indexeddb',
-            database: 'cryptpad'
-        })
+            database: 'cryptpad-sessions'
+        });
+
+        gadget.jIOSettings = jIO.createJIO({
+            type: 'indexeddb',
+            database: 'cryptpad-settings'
+        });
     }).declareMethod('info', function () {
         var gadget = this;
 
@@ -16,5 +21,9 @@
         return this.jIO.allDocs();
     }).declareMethod('getSession', function (id) {
         return this.jIO.get({_id: id});
+    }).declareMethod('storeSettings', function (settings) {
+        return this.jIOSettings.put({_id: 'cryptPadSettings', url: settings.url});
+    }).declareMethod('getSettings', function () {
+        return this.jIOSettings.get({_id: 'cryptPadSettings'});
     });
 })(window, jIO, rJS);

@@ -27,6 +27,8 @@
                 });
             case 'sessions':
                 return thisGadget.declareGadget('../sessions/index.html', {element: pageElement});
+            case 'settings':
+                return thisGadget.declareGadget('../settings/index.html', {element: pageElement});
         }
     });
 })
